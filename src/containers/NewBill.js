@@ -17,7 +17,7 @@ export default class NewBill {
     this.billId = null;
     new Logout({ document, localStorage, onNavigate });
   }
-// 2
+// 2 -------------------------------------------------------------------------//
   fileValidation = file => {
     // 2 On verifie le type de fichier à uploader
     const fileTypes = ["image/jpeg", "image/jpg", "image/png"];
@@ -32,7 +32,7 @@ export default class NewBill {
       .classList.remove("is-invalid");
     return true;
   };
-
+//-----------------------------------------------------------------------------//
   handleChangeFile = async e => {
     e.preventDefault();
     const file = this.document.querySelector(`input[data-testid="file"]`)
