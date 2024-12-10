@@ -44,15 +44,19 @@ export default class Login {
       //email: e.target.querySelector(`input[data-testid="employee-email-input"]`).value,
       //password: e.target.querySelector(`input[data-testid="employee-password-input"]`).value,
       //status: "connected"
-// 1
+// 1 -----------------------------------------------------------------------------------------//
       email: e.target.querySelector(`input[data-testid="admin-email-input"]`).value,
       password: e.target.querySelector(`input[data-testid="admin-password-input"]`).value,
       status: "connected"
+//--------------------------------------------------------------------------------------------//    
     }
     this.localStorage.setItem("user", JSON.stringify(user))
     this.login(user)
       .catch(
+     // (err) => this.createUser(user)
+//--------------------------------------------------------------------------------------------//        
         () => this.createUser(user)
+//--------------------------------------------------------------------------------------------//        
       )
       .then(() => {
         this.onNavigate(ROUTES_PATH['Dashboard'])
