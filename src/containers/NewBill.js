@@ -33,6 +33,7 @@ export default class NewBill {
     return true;
   };
 //-----------------------------------------------------------------------------//
+//handleChangeFile = e => {
   handleChangeFile = async e => {
     e.preventDefault();
     const file = this.document.querySelector(`input[data-testid="file"]`)
@@ -43,10 +44,10 @@ export default class NewBill {
     const email = JSON.parse(localStorage.getItem("user")).email;
     formData.append("file", file);
     formData.append("email", email);
-
+// 3 ---------------------------------------------------------------------------//
     this.fileValidation(file) &&
-// 3
-      this.store // 3 si type de fichier incorrect, on ne l'envoie pas vers le store
+// 3 si type de fichier incorrect, on ne l'envoie pas vers le store ------------//
+      this.store 
         .bills()
         .create({
           data: formData,
@@ -84,9 +85,10 @@ export default class NewBill {
       status: "pending",
     };
 
+// 4 ---------------------------------------------------------------------------//
     if (!this.fileName) return;
-// 4
-    // 4 si pas de fichier selectionné, submit impossible
+// 4 si pas de fichier selectionné, submit impossible --------------------------//
+
     this.updateBill(bill);
     this.onNavigate(ROUTES_PATH["Bills"]);
   };
