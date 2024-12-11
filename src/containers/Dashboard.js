@@ -154,13 +154,19 @@ export default class {
       this.counter++;
     }
 
+/*
     bills.forEach(bill => {
-      $(`#open-bill${bill.id}`).off("click"); //TODO 4 - On remove l'eventListener existant avant d'en ajouter un
+      $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
+    })
+ */
+ // 5  To-do 4 ----------------------------------------------------------------------------------------// 
+    bills.forEach(bill => {
+      $(`#open-bill${bill.id}`).off("click"); // To-do 4 - On remove l'eventListener existant avant d'en ajouter un
       $(`#open-bill${bill.id}`).on("click", e => {
         this.handleEditTicket(e, bill, bills);
       });
     });
-
+//-----------------------------------------------------------------------------------------------------//
     return bills;
   }
 
